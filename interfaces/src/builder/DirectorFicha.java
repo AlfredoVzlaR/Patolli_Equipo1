@@ -4,8 +4,7 @@
  */
 package builder;
 
-import java.awt.Color;
-import objetosNegocio.Casilla;
+import java.awt.Image;
 import objetosNegocio.Jugador;
 
 /**
@@ -14,31 +13,27 @@ import objetosNegocio.Jugador;
  */
 public class DirectorFicha {
 
-    public void construirFichaAzul(BuilderFicha builder, int numeroFicha) {
+    public void construirFichaAzul(BuilderFicha builder, int numeroFicha, Image img) {
         builder.setNumFicha(numeroFicha);
         builder.setJugador(new Jugador());
-        builder.setCasilla(new Casilla());
-        builder.setColor(Color.blue);
+        builder.setImg(img);
     }
 
-    public void construirFichaVerde(BuilderFicha builder, int numeroFicha) {
+    public void construirFichaVerde(BuilderFicha builder, int numeroFicha, Image img) {
         builder.setNumFicha(numeroFicha);
         builder.setJugador(new Jugador());
-        builder.setCasilla(new Casilla());
-        builder.setColor(Color.green);
+        builder.setImg(img);
     }
 
-    public void construirFichaMorada(BuilderFicha builder, int numeroFicha) {
+    public void construirFichaMorada(BuilderFicha builder, int numeroFicha,Image img) {
         builder.setNumFicha(numeroFicha);
         builder.setJugador(new Jugador());
-        builder.setCasilla(new Casilla());
-        builder.setColor(new Color(80, 13, 255));
+        builder.setImg(img);
     }
 
-    public void construirFichaNaranja(BuilderFicha builder, int numeroFicha) {
+    public void construirFichaNaranja(BuilderFicha builder, int numeroFicha, Image img) {
         builder.setNumFicha(numeroFicha);
         builder.setJugador(new Jugador());
-        builder.setCasilla(new Casilla());
-        builder.setColor(Color.orange);
+        builder.setImg(img);
     }
 }

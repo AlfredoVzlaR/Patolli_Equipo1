@@ -16,7 +16,6 @@ import javax.swing.JLabel;
 public class configuracion extends javax.swing.JFrame {
     private ImageIcon imagen; 
     private Icon icon;
-    private int casillas = Integer.parseInt(txtCasillas.getText());
     /**
      * Creates new form configuracion
      */

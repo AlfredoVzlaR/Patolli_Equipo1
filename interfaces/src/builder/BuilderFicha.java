@@ -4,8 +4,8 @@
  */
 package builder;
 
-import java.awt.Color;
-import objetosNegocio.Casilla;
+
+import java.awt.Image;
 import objetosNegocio.Jugador;
 
 /**
@@ -16,6 +16,5 @@ public interface BuilderFicha {
     
     void setNumFicha(int numFicha);
     void setJugador (Jugador jugador);
-    void setCasilla (Casilla casilla);
-    void setColor (Color color);
+    void setImg (Image img);
 }

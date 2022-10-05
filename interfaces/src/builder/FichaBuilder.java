@@ -5,6 +5,7 @@
 package builder;
 
 import java.awt.Color;
+import java.awt.Image;
 import objetosNegocio.Casilla;
 import objetosNegocio.Ficha;
 import objetosNegocio.Jugador;
@@ -17,8 +18,7 @@ public class FichaBuilder implements BuilderFicha {
     
     private int numFicha;
     private Jugador jugador; 
-    private Casilla casilla; 
-    private Color color;
+    private Image img;
     
     @Override
     public void setNumFicha(int numFicha) {
@@ -31,16 +31,11 @@ public class FichaBuilder implements BuilderFicha {
     }
 
     @Override
-    public void setCasilla(Casilla casilla) {
-        this.casilla = casilla;
-    }
-
-    @Override
-    public void setColor(Color color) {
-        this.color = color;
+    public void setImg(Image img) {
+        this.img = img;
     }
     
     public Ficha resultado(){
-        return new Ficha(numFicha, jugador, casilla, color);
+        return new Ficha(numFicha, img);
     }
 }

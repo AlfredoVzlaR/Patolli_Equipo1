@@ -6,6 +6,7 @@
 package objetosNegocio;
 
 import java.awt.Color;
+import java.awt.Image;
 
 /**
  *
@@ -14,17 +15,14 @@ import java.awt.Color;
 public class Ficha {
     private int numFicha;
     private Jugador jugador;
-    private Casilla casilla;
-    private Color color;
+    private Image img;
 
     public Ficha() {
         
     }
-    public Ficha(int numFicha, Jugador jugador, Casilla casilla, Color color) {
+    public Ficha(int numFicha,Image img) {
         this.numFicha = numFicha;
-        this.jugador = jugador;
-        this.casilla = casilla;
-        this.color = color;
+        this.img = img;
     }
 
     public int getNumFicha() {
@@ -43,20 +41,11 @@ public class Ficha {
         this.jugador = jugador;
     }
 
-    public Casilla getCasilla() {
-        return casilla;
+    public Image getImg() {
+        return img;
     }
 
-    public void setCasilla(Casilla casilla) {
-        this.casilla = casilla;
+    public void setImg(Image img) {
+        this.img = img;
     }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor() {
-        this.color = jugador.getColor();
-    }
-    
 }
