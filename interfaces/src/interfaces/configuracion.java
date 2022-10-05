@@ -17,6 +17,7 @@ public class configuracion extends javax.swing.JFrame {
     private ImageIcon imagen; 
     private Icon icon;
     private Image img;
+    private Image img2;
     /**
      * Creates new form configuracion
      */
