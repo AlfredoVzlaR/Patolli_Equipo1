@@ -10,6 +10,7 @@ import Juego.Movimientos;
 import builder.DirectorFicha;
 import builder.FichaBuilder;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Panel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,11 +22,18 @@ import javax.swing.JPanel;
  */
 public class Tablero extends javax.swing.JFrame {
     static DibujarTablero7 dibujar = new DibujarTablero7();
+    DirectorFicha director = new DirectorFicha();
+    FichaBuilder builder = new FichaBuilder();
     /**
      * Creates new form Tablero
      */
     public Tablero() {
         initComponents();
+        
+        ImageIcon f1 = new ImageIcon(getClass().getResource("/img/ficha1.png"));
+        director.construirFichaAzul(builder, 1, f1.getImage());
+        director.construirFichaAzul(builder, 2, f1.getImage());
+        
  
     }
     public void pintar(){
