@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 public class configuracion extends javax.swing.JFrame {
     private ImageIcon imagen; 
     private Icon icon;
+    private Image img;
     /**
      * Creates new form configuracion
      */
