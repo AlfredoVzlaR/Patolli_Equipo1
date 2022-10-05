@@ -59,16 +59,6 @@ public class Tablero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        btnRegresar2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
-        jPanel3 = new javax.swing.JPanel();
-        btnRegresar3 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
         tablero = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         cañas = new javax.swing.JPanel();
@@ -90,116 +80,6 @@ public class Tablero extends javax.swing.JFrame {
         ficha5 = new javax.swing.JLabel();
         ficha6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        btnRegresar2.setBackground(new java.awt.Color(0, 153, 255));
-        btnRegresar2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
-        btnRegresar2.setText("Regresar al menú principal");
-        btnRegresar2.setToolTipText("");
-        btnRegresar2.setActionCommand("");
-        btnRegresar2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 204), 1, true));
-        btnRegresar2.setBorderPainted(false);
-        btnRegresar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar2ActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jLabel6.setText("Reglas del juego:");
-
-        jTextPane3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jTextPane3.setText("~ Tablero ~\nEl tablero es en forma de aspa (X) con cuatro divisiones y 52 casillas (14 casillas por aspa – 7 por cada lado del aspa – y 4 casillas centrales), el número de casillas será variable de un máximo de 14 casillas por aspa, hasta un mínimo de 10 casillas. \n\nCabe destacar que las casillas con triángulos (4 por aspa) tienen una finalidad especial, que se explicará más adelante, así como la finalidad de las casillas redondeadas de las esquinas de dada aspa. También, existen casillas especiales para la salida o meta del tablero.\n\n~ Jugadores ~\nSe permiten de 2 a 4 jugadores máximo, cada uno inicia de un extremo de la cruz o equis del tablero.\n\n~ Fichas ~\nSe inicia con 6 fichas para cada jugador, de diferentes colores los cuales serán configurables, que irán avanzando por las casillas del tablero en dirección de las agujas del reloj, pasando por todas las casillas hasta llegar a la salida, que será la misma aspa por la que se inició. las fichas por jugador son configurables de un mínimo de 2 a un máximo de 6.\n\n~ Cañas ~\nEn vez de dados se usan 5 cañas, que de un lado tienen dibujado un punto y del otro estará totalmente liso. Cada jugador deberá lanzar los 5 dados en su turno correspondiente y dependiendo como caigan podrá avanzar el número de casillas, como se indica a continuación.\n\n\t• 1 caña con punto y las demás lisas, se avanza 1 casilla.\n\t• 2 cañas con punto y las demás lisas, se avanzan 2 casillas.\n\t• 3 cañas con punto y las demás lisas, se avanzan 3 casillas.\n\t• 4 cañas con punto y la restante lisa, se avanzan 4 casillas.\n\t• 5 cañas con punto, se avanzan 10 casillas.\n\t• 5 cañas mostrando la cara lisa, no se avanza y se cede el turno al siguiente jugador.\n\n~ Apuestas ~\nSe tiene un fondo fijo de apuesta para cada jugador y un monto para apostar por vez (ambos configurables al inicio de la partida). Si a un jugador se le acaba el fondo de apuestas, sale del juego automáticamente.\n\n~ Movimientos ~\n• Para ingresar de inicio una ficha en el tablero se tiene que sacar al menos un punto en la tirada de los 5 dados. Si la tirada no es exitosa debe pagar una apuesta a los contrincantes.\n\n• Una vez con una ficha adentro, cada vez que un jugador logra obtener un punto en su tirada tiene la posibilidad de incorporar una ficha en el tablero, esto hasta que logre introducir sus 6 fichas.\n\no Si falta una ficha a ingresar y el jugador saca un punto, no puede introducir una nueva ficha en el tablero, si tiene una a una casilla de llegar a la meta, primero se avanza esta última, y la otra ficha tendrá que espera hasta que salga un uno nuevamente.\n\n• Para ingresar una ficha, esta se coloca en la casilla central del tablero que le corresponde (el contrario a la salida).\n\n• Con cada lanzada que mueve una sola ficha, en el orden en que las mismas fueron entrando al tablero. Por ejemplo: vamos a suponer que un jugador tiene ya una ficha ingresada al tablero, y en su siguiente lanzada obtiene 1, por lo tanto, ingresa una nueva ficha; en el siguiente turno, la lanzada sería para avanzar la ficha que\ningresó 1ero, luego en su siguiente lanzada, se moverá la segunda ficha, y así sucesivamente. \no Se pudiera escoger que ficha avanzar pagando una apuesta.\n\n• No puede haber dos fichas de diferente color en la misma casilla. Si al hacer la tirada, la ficha cae en una casilla ocupada, se tienen las siguientes opciones.\n\no Si la casilla es una de las 4 centrales, la ficha que está actualmente en la casilla es eliminada.\n\no Si la casilla no es de las centrales, la ficha que cayó en la casilla ocupada se devuelve a la casilla de donde partió.\n\n• Si un jugador saca una combinación en la que no le permita avanzar ninguna pieza (todas las cañas lisas) deberá pagar una apuesta.\n\n• Si el jugador cae en una casilla con triángulo se paga doble apuesta.\n\n• Si un jugador se queda sin fichas automáticamente pierde la partida.\n\n• Cuando una ficha llega a la meta se cobra una apuesta a todos los contrincantes y se realiza una nueva jugada.\n\n• Cuando se cae en la zona semicircular que hay al final de cada brazo del tablero (hay ocho casillas), juega dos turnos seguidos.\n\n~ Ganador ~\n\nGana el jugador que logre meter primero todas sus fichas en la meta o en su defecto, aquel que logre meter el mayor número de fichas.");
-        jTextPane3.setToolTipText("");
-        jScrollPane3.setViewportView(jTextPane3);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        btnRegresar3.setBackground(new java.awt.Color(0, 153, 255));
-        btnRegresar3.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 18)); // NOI18N
-        btnRegresar3.setText("Regresar al menú principal");
-        btnRegresar3.setToolTipText("");
-        btnRegresar3.setActionCommand("");
-        btnRegresar3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 204), 1, true));
-        btnRegresar3.setBorderPainted(false);
-        btnRegresar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegresar3ActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 24)); // NOI18N
-        jLabel7.setText("Reglas del juego:");
-
-        jTextPane4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jTextPane4.setText("~ Tablero ~\nEl tablero es en forma de aspa (X) con cuatro divisiones y 52 casillas (14 casillas por aspa – 7 por cada lado del aspa – y 4 casillas centrales), el número de casillas será variable de un máximo de 14 casillas por aspa, hasta un mínimo de 10 casillas. \n\nCabe destacar que las casillas con triángulos (4 por aspa) tienen una finalidad especial, que se explicará más adelante, así como la finalidad de las casillas redondeadas de las esquinas de dada aspa. También, existen casillas especiales para la salida o meta del tablero.\n\n~ Jugadores ~\nSe permiten de 2 a 4 jugadores máximo, cada uno inicia de un extremo de la cruz o equis del tablero.\n\n~ Fichas ~\nSe inicia con 6 fichas para cada jugador, de diferentes colores los cuales serán configurables, que irán avanzando por las casillas del tablero en dirección de las agujas del reloj, pasando por todas las casillas hasta llegar a la salida, que será la misma aspa por la que se inició. las fichas por jugador son configurables de un mínimo de 2 a un máximo de 6.\n\n~ Cañas ~\nEn vez de dados se usan 5 cañas, que de un lado tienen dibujado un punto y del otro estará totalmente liso. Cada jugador deberá lanzar los 5 dados en su turno correspondiente y dependiendo como caigan podrá avanzar el número de casillas, como se indica a continuación.\n\n\t• 1 caña con punto y las demás lisas, se avanza 1 casilla.\n\t• 2 cañas con punto y las demás lisas, se avanzan 2 casillas.\n\t• 3 cañas con punto y las demás lisas, se avanzan 3 casillas.\n\t• 4 cañas con punto y la restante lisa, se avanzan 4 casillas.\n\t• 5 cañas con punto, se avanzan 10 casillas.\n\t• 5 cañas mostrando la cara lisa, no se avanza y se cede el turno al siguiente jugador.\n\n~ Apuestas ~\nSe tiene un fondo fijo de apuesta para cada jugador y un monto para apostar por vez (ambos configurables al inicio de la partida). Si a un jugador se le acaba el fondo de apuestas, sale del juego automáticamente.\n\n~ Movimientos ~\n• Para ingresar de inicio una ficha en el tablero se tiene que sacar al menos un punto en la tirada de los 5 dados. Si la tirada no es exitosa debe pagar una apuesta a los contrincantes.\n\n• Una vez con una ficha adentro, cada vez que un jugador logra obtener un punto en su tirada tiene la posibilidad de incorporar una ficha en el tablero, esto hasta que logre introducir sus 6 fichas.\n\no Si falta una ficha a ingresar y el jugador saca un punto, no puede introducir una nueva ficha en el tablero, si tiene una a una casilla de llegar a la meta, primero se avanza esta última, y la otra ficha tendrá que espera hasta que salga un uno nuevamente.\n\n• Para ingresar una ficha, esta se coloca en la casilla central del tablero que le corresponde (el contrario a la salida).\n\n• Con cada lanzada que mueve una sola ficha, en el orden en que las mismas fueron entrando al tablero. Por ejemplo: vamos a suponer que un jugador tiene ya una ficha ingresada al tablero, y en su siguiente lanzada obtiene 1, por lo tanto, ingresa una nueva ficha; en el siguiente turno, la lanzada sería para avanzar la ficha que\ningresó 1ero, luego en su siguiente lanzada, se moverá la segunda ficha, y así sucesivamente. \no Se pudiera escoger que ficha avanzar pagando una apuesta.\n\n• No puede haber dos fichas de diferente color en la misma casilla. Si al hacer la tirada, la ficha cae en una casilla ocupada, se tienen las siguientes opciones.\n\no Si la casilla es una de las 4 centrales, la ficha que está actualmente en la casilla es eliminada.\n\no Si la casilla no es de las centrales, la ficha que cayó en la casilla ocupada se devuelve a la casilla de donde partió.\n\n• Si un jugador saca una combinación en la que no le permita avanzar ninguna pieza (todas las cañas lisas) deberá pagar una apuesta.\n\n• Si el jugador cae en una casilla con triángulo se paga doble apuesta.\n\n• Si un jugador se queda sin fichas automáticamente pierde la partida.\n\n• Cuando una ficha llega a la meta se cobra una apuesta a todos los contrincantes y se realiza una nueva jugada.\n\n• Cuando se cae en la zona semicircular que hay al final de cada brazo del tablero (hay ocho casillas), juega dos turnos seguidos.\n\n~ Ganador ~\n\nGana el jugador que logre meter primero todas sus fichas en la meta o en su defecto, aquel que logre meter el mayor número de fichas.");
-        jTextPane4.setToolTipText("");
-        jScrollPane4.setViewportView(jTextPane4);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRegresar3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(284, 284, 284))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(btnRegresar3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRegresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(284, 284, 284))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(btnRegresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -400,21 +280,11 @@ public class Tablero extends javax.swing.JFrame {
         ingresarFicha();
     }//GEN-LAST:event_tirarCañasActionPerformed
 
-    private void btnRegresar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegresar2ActionPerformed
-
-    private void btnRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegresar3ActionPerformed
-
     /**
      * @param args the command line arguments
      */
 //     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegresar2;
-    private javax.swing.JButton btnRegresar3;
     public static javax.swing.JLabel cañaCinco;
     public static javax.swing.JLabel cañaCuatro;
     public static javax.swing.JLabel cañaDos;
@@ -434,14 +304,6 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextPane jTextPane3;
-    private javax.swing.JTextPane jTextPane4;
     private static javax.swing.JPanel tablero;
     private javax.swing.JButton tirarCañas;
     // End of variables declaration//GEN-END:variables
