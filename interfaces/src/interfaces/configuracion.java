@@ -222,8 +222,8 @@ public class configuracion extends javax.swing.JFrame {
             return;
         }
         
-        if(this.getInteger(txtCasillas.getText())> 14 || this.getInteger(txtCasillas.getText()) < 0){
-            JOptionPane.showMessageDialog(this, "El número máximo de casillas por aspa debe ser 14.", "Error", JOptionPane.ERROR_MESSAGE);
+        if(this.getInteger(txtCasillas.getText())> 14 || this.getInteger(txtCasillas.getText()) < 0 || this.getInteger(txtCasillas.getText())< 10){
+            JOptionPane.showMessageDialog(this, "El número máximo de casillas por aspa debe ser 14 y el mínimo de 10.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
             
         }
