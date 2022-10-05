@@ -8,6 +8,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +17,7 @@ import javax.swing.JLabel;
 public class configuracion extends javax.swing.JFrame {
     private ImageIcon imagen; 
     private Icon icon;
-    private int casillas = Integer.parseInt(txtCasillas.getText());
+//    private int casillas = Integer.parseInt(txtCasillas.getText());
     /**
      * Creates new form configuracion
      */
@@ -49,7 +50,7 @@ public class configuracion extends javax.swing.JFrame {
         txtFondo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtApuesta = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnValidar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,10 +84,15 @@ public class configuracion extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         jLabel7.setText("Monto de apuesta:");
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 204));
-        jButton1.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
-        jButton1.setText("Validar configuración");
-        jButton1.setBorderPainted(false);
+        btnValidar.setBackground(new java.awt.Color(0, 153, 204));
+        btnValidar.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
+        btnValidar.setText("Validar configuración");
+        btnValidar.setBorderPainted(false);
+        btnValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidarActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 153, 204));
         jButton2.setFont(new java.awt.Font("Berlin Sans FB Demi", 0, 14)); // NOI18N
@@ -133,7 +139,7 @@ public class configuracion extends javax.swing.JFrame {
                                 .addComponent(txtApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnValidar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -178,7 +184,7 @@ public class configuracion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17))))
         );
 
@@ -205,6 +211,50 @@ public class configuracion extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
+        if(this.validarEspaciosVacios() == false){
+            JOptionPane.showMessageDialog(this, "Los campos (Casillas, Fondo y Apuesta) no pueden estar vacíos.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(isNumeric(txtApuesta.getText())== false || isNumeric(txtCasillas.getText()) == false || isNumeric(txtFondo.getText()) == false){
+            JOptionPane.showMessageDialog(this, "Los campos (Casillas, Fondo y Apuesta) deben ser numéricos.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(this.getInteger(txtCasillas.getText())> 14 || this.getInteger(txtCasillas.getText()) < 0){
+            JOptionPane.showMessageDialog(this, "El número máximo de casillas por aspa debe ser 14.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+            
+        }
+        
+        if(this.getInteger(txtFondo.getText()) <= 0 || this.getInteger(txtApuesta.getText()) <= 0){
+            JOptionPane.showMessageDialog(this, "El fondo y la apuesta deben ser números postivos y mayores a 0.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+    }//GEN-LAST:event_btnValidarActionPerformed
+
+    private boolean validarEspaciosVacios() {
+        if (txtApuesta.getText().isEmpty() || txtCasillas.getText().isEmpty() || txtFondo.getText().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+    
+      private static boolean isNumeric(String cadena) {
+        try {
+            Float.parseFloat(cadena);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+      
+    public int getInteger(String valor) {
+        int integer = Integer.parseInt(valor);
+        return integer;
+    }
     /**
      * @param args the command line arguments
      */
@@ -249,8 +299,8 @@ public class configuracion extends javax.swing.JFrame {
         this.repaint();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnValidar;
     private javax.swing.JLabel config;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
