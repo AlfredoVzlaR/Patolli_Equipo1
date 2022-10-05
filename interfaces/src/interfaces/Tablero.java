@@ -7,6 +7,8 @@ package interfaces;
 import DibujarTableros.Cañas;
 import DibujarTableros.DibujarTablero7;
 import Juego.Movimientos;
+import builder.DirectorFicha;
+import builder.FichaBuilder;
 import java.awt.Graphics;
 import java.awt.Panel;
 import javax.swing.Icon;
@@ -24,6 +26,7 @@ public class Tablero extends javax.swing.JFrame {
      */
     public Tablero() {
         initComponents();
+ 
     }
     public void pintar(){
         dibujar.dibujarTablero(tablero.getGraphics());
